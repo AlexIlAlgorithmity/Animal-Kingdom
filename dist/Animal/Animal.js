@@ -46,16 +46,9 @@ class Reptile extends Animal {
     GiveBirth(createInstance) {
         const numberOfBabies = 8;
         const babies = [];
-        for (let i = 0; i < numberOfBabies - 3; i++) {
+        for (let i = 0; i < numberOfBabies; i++) {
             babies.push(createInstance());
         }
-        let babyFemale1 = createInstance();
-        babyFemale1.gender == Gender_1.Gender.Female;
-        let babyMale1 = createInstance();
-        babyMale1.gender == Gender_1.Gender.Male;
-        let babyMale2 = createInstance();
-        babyMale2.gender == Gender_1.Gender.Male;
-        babies.push(babyFemale1, babyMale1, babyMale2);
         console.log(`${this.name} lays eggs`);
         return babies;
     }

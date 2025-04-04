@@ -13,6 +13,7 @@ export class Squirrel extends Mammal<Squirrel> implements TreeHome{
     StoreNut():void|never{
     if(this.tree.nutCapacity<this.currentNutsInHouse)
         throw new Error("Not enough space in tree");
+    
     this.currentNutsInHouse++;
     }
     
