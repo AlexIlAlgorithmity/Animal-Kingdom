@@ -2,7 +2,9 @@
 import { AgeInterface } from "../Attributes/Age/Age";
 import { Gender } from "../Attributes/Gender/Gender";
 import { GenderInterface } from "../Attributes/Gender/Gender";
-import { Lion } from "./Animals/Lion";
+import { IJump } from "../Attributes/Jump";
+import { IWalk } from "../Attributes/Walk";
+import { ISwim } from "../Attributes/Swim";
 
 type AnimalType= "Mammal" | "Reptile";
 
@@ -24,7 +26,7 @@ export abstract class Animal<T extends Animal<T>> implements AgeInterface,Gender
     }
 }
 
-export abstract class Mammal<T extends Animal<T>> extends Animal<T> {
+export abstract class Mammal<T extends Animal<T>> extends Animal<T> implements IWalk,IJump {
     protected constructor(protected name: string) {
         super("Mammal");
     }
@@ -51,7 +53,7 @@ export abstract class Mammal<T extends Animal<T>> extends Animal<T> {
 }
 
 
-export abstract class Reptile<T extends Animal<T>> extends Animal<T> {
+export abstract class Reptile<T extends Animal<T>> extends Animal<T> implements IWalk,ISwim {
     constructor(protected name: string) {
         super("Reptile");
     }
@@ -59,10 +61,18 @@ export abstract class Reptile<T extends Animal<T>> extends Animal<T> {
     GiveBirth(createInstance: () => T): T[] {
         const numberOfBabies:number = 8;
         const babies: T[] = [];
-
-        for (let i = 0; i < numberOfBabies; i++) {
+        for (let i = 0; i < numberOfBabies-3; i++) {
             babies.push(createInstance());
         }
+        let babyFemale1:T=createInstance();
+        babyFemale1.gender==Gender.Female;
+        let babyMale1:T=createInstance();
+        babyMale1.gender==Gender.Male;
+        let babyMale2:T=createInstance();
+        babyMale2.gender==Gender.Male;
+
+        babies.push(babyFemale1,babyMale1,babyMale2);
+
         console.log(`${this.name} lays eggs`);
 
         return babies;

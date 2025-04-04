@@ -83,9 +83,6 @@ console.log(snakes[0].LivingPlace());
 console.log(snakes.length);
 console.log(snake.Walk());
 let animalShetler = new AnimalShetler(10, 11);
-console.log(animalShetler.currentReptiles);
-console.log(animalShetler.maxCountReptiles);
-console.log(redNeck.maxSize);
 animalShetler.addReptileFamily(redNeck);
 try {
     animalShetler.addReptile(crocodile);

@@ -1,7 +1,10 @@
 import { AgeType, AgeTypeInterface } from "../../Attributes/Age/Age";
 import { Mammal } from "../Animal";
 import { Family,FamilyInterface } from "../../LiveStyle/Family/Family";
-export class Lion extends Mammal<Lion> implements FamilyInterface,AgeTypeInterface{
+import { IRun } from "../../Attributes/Run";
+import { ITalk } from "../../Attributes/Talk";
+
+export class Lion extends Mammal<Lion> implements FamilyInterface,AgeTypeInterface,IRun,ITalk{
     public ageType: AgeType;
     constructor(_age:number,name:string,public family:Family) {
         super(name);
