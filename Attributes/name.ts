@@ -1,3 +1,0 @@
-interface NameInterface{
-    name:string;
-}
